@@ -1,5 +1,5 @@
 /**
- * @param {object} option - one entry param to function yu-imgUpload
+ * @param {object} option - one entry param to function yu-img-upload
  * @param {boolean} [option.popup] - accept true || false 是否用插件带的弹出框 默认用
  * @param {boolean} [option.multiple] - accept true || false 是否支持多选 默认支持
  * @param {obejct} [option.target] target render DOM 需要渲染的dom
@@ -256,11 +256,11 @@ class imgUpload {
             }
             let difference = new Set([...userParams].filter(x => !allowParams.has(x)));//计算用户的参数和允许参数的差集
             if(userParams.size - difference.size === 0){//没有有用的配置项
-                console.error(`useful configuration in param 'option' is none , Please fill in at least one useful configuration just like : '${Array.from(allowParams)}' -- yu-imgUpload`);
+                console.error(`useful configuration in param 'option' is none , Please fill in at least one useful configuration just like : '${Array.from(allowParams)}' -- yu-img-upload`);
                 return false;
             }else{
                 if(difference.size>0){//有未定的参数键值对
-                    console.warn(`'${Array.from(difference)}' are not allowed , param 'option' can only accept these configuration : '${Array.from(allowParams)}' -- yu-imgUpload`)
+                    console.warn(`'${Array.from(difference)}' are not allowed , param 'option' can only accept these configuration : '${Array.from(allowParams)}' -- yu-img-upload`)
                 }
             }
             //创建原始DOM
@@ -283,7 +283,7 @@ class imgUpload {
                 _class.handleShowPreview(this,$(this))
             })
         }else{
-            console.error(`there is no param 'option' , yu-imgUpload can not work without any config , please check you code . -- yu-imgUpload`)
+            console.error(`there is no param 'option' , yu-img-upload can not work without any config , please check you code . -- yu-img-upload`)
         }
     }
 };

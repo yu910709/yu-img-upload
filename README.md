@@ -1,7 +1,7 @@
-### npm install --save yu-imgUpload
-### import imgUpload from 'yu-imgUpload'
+### npm install --save yu-img-upload
+### import imgUpload from 'yu-img-upload'
 
-    @param {object} option - one entry param to function yu-imgUpload
+    @param {object} option - one entry param to function yu-img-upload
     @param {boolean} [option.popup] - accept true || false 是否用插件带的弹出框 默认用
     @param {boolean} [option.multiple] - accept true || false 是否支持多选 默认支持
     @param {obejct} [option.target] target render DOM 需要渲染的dom
