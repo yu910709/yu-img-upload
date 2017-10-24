@@ -2,6 +2,7 @@
  * @param {object} option - one entry param to function yu-img-upload
  * @param {boolean} [option.popup] - accept true || false 是否用插件带的弹出框 默认用
  * @param {boolean} [option.multiple] - accept true || false 是否支持多选 默认支持
+ * @param {string} [option.name] - name input的name属性 默认名为file
  * @param {obejct} [option.target] target render DOM 需要渲染的dom
  * @param {number} [option.maxnum = 5] - max upload number 最大选择图片数量 （multiple为false的时候插件会强制maxnum为1） 默认为5
  * @param {number} [option.maxsize = 1] - max upload image size 选择图片最大的尺寸 单位M 默认1M
@@ -14,6 +15,7 @@ class imgUpload {
         this.option = {
             popup:(props.popup&&(props.popup==='boolean'))?props.popup:true,
             multiple:(props.multiple&&(props.multiple==='boolean'))?props.multiple:true,
+            name:(props.name&&(props.name==='string'))?props.name:'file',
             target:(props.target&&(props.target==='object'))?props.target:document.querySelector('.imgUpload'),
             maxnum:(!props.maxnum||(props.maxnum!=='number'))?5:(props.multiple!==false)?props.maxnum:1,
             maxsize:(props.maxsize&&(props.maxsize==='number'))?props.maxsize:1,
@@ -249,7 +251,7 @@ class imgUpload {
         let _class = this;//转交类对象
         if(this.option){
             //参数合理性判断
-            let allowParams = new Set(['popup','multiple','target','maxnum','maxsize']);
+            let allowParams = new Set(['popup','multiple','name','target','maxnum','maxsize']);
             let userParams = new Set();
             for (let i in this.option) {
                 userParams.add(i)
@@ -266,9 +268,9 @@ class imgUpload {
             //创建原始DOM
             let inputNode;
             if(this.option.multiple){
-                inputNode = '<input type="file" name="file[]" multiple="multiple" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">'
+                inputNode = '<input type="file" name="'+this.option.name+'[]" multiple="multiple" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">'
             }else{
-                inputNode = '<input type="file" name="file" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">'
+                inputNode = '<input type="file" name="'+this.option.name+'" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg">'
             }
             this.option.target.innerHTML = `
                 <ul class="upload gap" data-maxnum=${this.option.maxnum} data-maxsize=${this.option.maxsize}>
