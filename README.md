@@ -49,23 +49,3 @@
 
 > README.md 说明文档（本文件）
 
-### webpack 配置
-
-    总体：热加载(不含组件热加载),全局挂载,自动清理产出文件夹,区分处理开发和发布环境
-
-    html：html模板引擎,svg行内挂载
-
-    css: less sass 分离样式表 自动补全前缀hack 支持css4(与less sass 冲突 选择性使用)
-
-    js: 支持es6 typescript 代码分离 提取公共模块 丑化
-
-    图片：压缩 base64编码
-
-    字体：压缩
-
-### npm包说明
-
-* devDependencies 为开发的配置项
-
-* dependencies 为项目的配置项 现包括jquery(已在webpack全局挂载),font-awesome,lodash
-
