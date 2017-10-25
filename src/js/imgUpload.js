@@ -245,7 +245,6 @@ class imgUpload {
 
     /**
      * @description 初始化
-     * @returns {boolean}
      */
     init(){
         let _class = this;//转交类对象
