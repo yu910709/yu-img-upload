@@ -1,1 +1,1 @@
-module.exports = require('./lib/imgupload');
+module.exports = require('./lib/plugin');

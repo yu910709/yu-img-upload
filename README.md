@@ -1,51 +1,44 @@
-# 这是一个简单的自用书写插件发布到npm用的包
+##Introduce  
 
-### 安装步骤
+this script is just for image upload,it support pc ios and android. in pc & ios you can clear what you picked and repick the pictures;in android you should pick and delete the picture only one by one.
 
-    1.请确保全局安装了 webpack npm
+##Quick to start:
 
-    2.下载克隆此工程
+install:     
+`npm install --save yu-img-upload `    
 
-    3.npm install
+import:  
+`import YuImgUpload from 'yu-img-upload' `
 
-    4.npm run dev (开发环境) npm run build (发布环境)
-    
-    * 请在lib目录下的脚本顶部加上 module.exports = 
-    （因为webpack打包出来的文件没有export，而是一个大的闭包。
-    又因为有图片字体等文件，插件比较丰富，所以需要webpack打包，期待更好的处理方法，
-    简单的纯脚本plugin可以参考我另一个脚手架：babel-cli-plugin）
+##Example
 
-### 目录结构
+>You can use `npm run dev` to check the example file in node package
 
-> `src 开发环境`
+    new imgUpload({
+            popup:true,
+            multiple:true,
+            name:'file',
+            target:document.querySelector('.imgUpload'),
+            maxnum:6,
+            maxsize:0.5,
+            accept:'image/gif,image/jpeg,image/jpg,image/png,image/svg',
+            hint:'icon',
+        });
+        
+##参数
 
->> css 里面app.scss用来做为example的样式,plugin.scss是plugin的样式
+ * @param {object[]} option
+ * @param {boolean} [option[].popup = true] - should it use yu-popup or alert 
+ * @param {boolean} [option[].multiple = true] - should it accept multiple files
+ * @param {string} [option[].name = file] - the name of input
+ * @param {obejct} [option[].target = document.querySelector('.imgUpload')] - which dom to render
+ * @param {number} [option[].maxnum = 9] - the max number of pictures that can be upload
+ * @param {number} [option[].maxsize = 1] - the max size of eeach picture
+ * @param {string} [option[].accept = image/gif,image/jpeg,image/jpg,image/png,image/svg] - the format of picture that can be accepted
+ * @param {string} [option[].hint = icon] - how  button shows
 
->> js 里面app.js用来做为example的脚本,plugin.js是plugin的脚本
-
->> ... 其他类如IMG等等文件夹
-
->> template.html 主模板/页面
-
-> `dist 发布环境 通常是演示文件`
-
->> ... 产出文件 index.html为主入口
-
-> `lib 发布NPM包 请在脚本最前面加上 module.exports = `
-
-> node_modules 模块包
-
-> .gitignore git 忽略文件
-
-> index.js npm官方入口,可以在package.json中配置
-
-> .babelrc babel配置文件
-
-> package.json 包信息
-
-> postcss.config.js postcss配置文件
-
-> webpack.config.js webpack配置文件
-
-> README.md 说明文档（本文件）
-
+##Links
+#####github  
+see https://github.com/watanabeyu0709/yu-img-upload
+#####npm  
+see https://www.npmjs.com/package/yu-img-upload

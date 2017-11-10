@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer');//补全css各种hack
 module.exports = {
     devtool: "source map",
     entry: {
-        imgUpload: './src/js/imgUpload.js'
+        plugin: './src/js/plugin.js'
     },
     output: {
         filename: '[name].js',

@@ -1,3 +1,6 @@
+@charset "utf-8";
+@import '~normalize.css'; /*reset css*/
+
 #example{
   margin: 0 auto;
   width: 100%;
@@ -8,6 +11,13 @@
   }
   &>div{
     margin-top:15px;
+    .box{
+      background: #f2f2f2;
+      padding: 15px;
+      .title{
+        margin: 0 0 10px;
+      }
+    }
     .btn{
       border-radius: 3px;
       padding: 7px 12px;

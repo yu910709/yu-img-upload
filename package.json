@@ -1,6 +1,6 @@
 {
   "name": "yu-img-upload",
-  "version": "1.0.6",
+  "version": "1.0.14",
   "description": "a simple images upload plugin with preview",
   "main": "index.js",
   "scripts": {
@@ -47,6 +47,7 @@
   "dependencies": {
     "jquery": "^3.2.1",
     "normalize.css": "^7.0.0",
+    "yu-judge-browser": "^1.0.0",
     "yu-popup": "^1.1.14"
   }
 }
