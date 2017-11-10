@@ -1,6 +1,6 @@
 {
   "name": "yu-img-upload",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "a simple images upload plugin with preview",
   "main": "index.js",
   "scripts": {

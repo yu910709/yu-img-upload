@@ -1,16 +1,15 @@
-##Introduce  
+## Introduce  
 
 this script is just for image upload,it support pc ios and android. in pc & ios you can clear what you picked and repick the pictures;in android you should pick and delete the picture only one by one.
 
-##Quick to start:
+## Quick to start:
 
 install:     
 `npm install --save yu-img-upload `    
-
 import:  
 `import YuImgUpload from 'yu-img-upload' `
 
-##Example
+## Example
 
 >You can use `npm run dev` to check the example file in node package
 
@@ -25,7 +24,7 @@ import:
             hint:'icon',
         });
         
-##JSDoc
+## JSDoc
 
  * @param {object[]} option
  * @param {boolean} [option[].popup = true] - should it use yu-popup or alert 
@@ -37,8 +36,9 @@ import:
  * @param {string} [option[].accept = image/gif,image/jpeg,image/jpg,image/png,image/svg] - the format of picture that can be accepted
  * @param {string} [option[].hint = icon] - how  button shows
 
-##Links
-#####github  
+## Links
+
+##### github  
 see https://github.com/watanabeyu0709/yu-img-upload
-#####npm  
+##### npm  
 see https://www.npmjs.com/package/yu-img-upload
