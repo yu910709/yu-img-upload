@@ -13,7 +13,7 @@ import:
 
 >You can use `npm run dev` to check the example file in node package
 
-    new YuImgUpload({
+    new imgUpload({
             popup:true,
             multiple:true,
             name:'file',
