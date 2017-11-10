@@ -7,7 +7,7 @@
  * @param {number} [option[].maxnum = 9] - 最大上传数
  * @param {number} [option[].maxsize = 1] - 最大上传尺寸 单位M
  * @param {string} [option[].accept = image/gif,image/jpeg,image/jpg,image/png,image/svg] - 接受图片格式
- * @param {string} [option[].hint = icon] - accept 按钮上显示的提示方法 icon || word
+ * @param {string} [option[].hint = icon] - 按钮上显示的提示方法 icon || word
  */
 import popup from 'yu-popup';//popup
 import YuJudgeBrowser from 'yu-judge-browser';//us judge

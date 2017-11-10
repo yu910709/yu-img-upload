@@ -1,5 +1,5 @@
 import '../css/app.scss';
-import YuJudgeBrowser from './plugin';
+import YuImgUpload from './plugin';
 
 document.getElementById('example').innerHTML = (`
     <h1>示例</h1>
@@ -24,7 +24,7 @@ document.querySelector('.ex').innerHTML = (`
 `);
 
 window.onload=function () {
-    new YuJudgeBrowser({
+    new YuImgUpload({
         popup:true,
         multiple:true,
         name:'file',

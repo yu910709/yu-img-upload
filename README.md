@@ -14,7 +14,7 @@ import:
 
 >You can use `npm run dev` to check the example file in node package
 
-    new imgUpload({
+    new YuImgUpload({
             popup:true,
             multiple:true,
             name:'file',
@@ -25,7 +25,7 @@ import:
             hint:'icon',
         });
         
-##参数
+##JSDoc
 
  * @param {object[]} option
  * @param {boolean} [option[].popup = true] - should it use yu-popup or alert 
