@@ -2,7 +2,7 @@
 
 this script is just for image upload,it support pc ios and android. in pc & ios you can clear what you picked and repick the pictures;in android you should pick and delete the picture only one by one.
 
-## Quick to start:
+## Quick to start
 
 install:     
 `npm install --save yu-img-upload `    
