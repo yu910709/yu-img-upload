@@ -37,5 +37,5 @@ new imgUpload({
 ```
 
 ## Links
-[![github](http://p0kpwl4c8.bkt.clouddn.com/icon/github_c.png!icon_sm "https://github.com/watanabeyu0709/yu-popup")](https://github.com/watanabeyu0709/yu-img-upload)
-[![npm](http://p0kpwl4c8.bkt.clouddn.com/icon/npm_c.png!icon_sm "https://www.npmjs.com/package/yu-popup")](https://www.npmjs.com/package/yu-img-upload)
+[![github](http://p0kpwl4c8.bkt.clouddn.com/icon/github_c.png!icon_sm "https://github.com/watanabeyu0709/yu-img-upload")](https://github.com/watanabeyu0709/yu-img-upload)
+[![npm](http://p0kpwl4c8.bkt.clouddn.com/icon/npm_c.png!icon_sm "https://www.npmjs.com/package/yu-img-upload")](https://www.npmjs.com/package/yu-img-upload)
