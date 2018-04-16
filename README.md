@@ -5,7 +5,7 @@ this script is just for image upload,it support pc ios and android. in pc & ios 
 Using npm:
 ```shell
 $ npm install --save yu-img-upload
-$ import YuImgUpload from 'yu-img-upload'
+$ import imgUpload from 'yu-img-upload'
 ```
 
 ## Example

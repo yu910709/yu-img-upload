@@ -6,7 +6,7 @@
  * @param {obejct} [option[].target = document.querySelector('.imgUpload')] - 需要渲染的DOM
  * @param {number} [option[].maxnum = 9] - 最大上传数
  * @param {number} [option[].maxsize = 1] - 最大上传尺寸 单位M
- * @param {string} [option[].accept = image/gif,image/jpeg,image/jpg,image/png,image/svg] - 接受图片格式
+ * @param {string} [option[].accept = image/gif,image/jpeg,image/jpg,image/png,image/svg] - 接受文件格式
  * @param {string} [option[].hint = icon] - 按钮上显示的提示方法 icon || word
  */
 import popup from 'yu-popup';//popup
@@ -118,7 +118,7 @@ class YuImgUpload {
     }
 
     /**
-     * @description 删除图片
+     * @description 删除文件
      */
     handleDelete(_this){
         let _index = _this.parents(".uploadImg").index();
@@ -135,12 +135,12 @@ class YuImgUpload {
      */
     handleShowPreview(source,_this){
         if(this.handleUploadImg(source,_this) === true){
-            //安卓统计图片张数超过最大跳出 其他设备清除显示区
+            //安卓统计文件个数超过最大跳出 其他设备清除显示区
             if(this.browser.versions.android){
                 if($(source).parents(".uploadBtn").siblings('.uploadImg').length === _this.parents(".upload").data("maxnum")){
                     this.handleShowMes({
                         type:'error',
-                        desc:`您最多可以上传${_this.parents(".upload").data("maxnum")}张图片!`,
+                        desc:`您最多可以上传${_this.parents(".upload").data("maxnum")}个文件!`,
                         timing:3500
                     });
                     let html_btn = (this.option.multiple)?
@@ -163,12 +163,43 @@ class YuImgUpload {
                     let _class = this;//转交类对象
                     let fr = new FileReader();
                     fr.onloadend = function(e) {
-                        //安卓删除单个图片选项
+                        //安卓删除单个文件选项
                         let html_img;
-                        if(_class.browser.versions.android){
-                            html_img = `<li class="uploadImg">${(_class.option.hint === 'icon')?'<i class="iconfont icon-minus del"></i>':'<i class="word del">点击<br>删除</i>'}<img src="${e.target.result}" width="70" height="75"></li>`;
+                        //根据文件类型显示icon
+                        let icon = 'icon-file';
+                        if(e.target.result.includes('json')||e.target.result.includes('html')||e.target.result.includes('css')||e.target.result.includes('xml')){
+                            icon = 'icon-file-code';
+                        }else if(e.target.result.includes('video')){
+                            icon = 'icon-file-video';
+                        }else if(e.target.result.includes('audio')){
+                            icon = 'icon-file-audio';
+                        }else if(e.target.result.includes('image')){
+                            icon = 'icon-file-image';
+                        }else if(e.target.result.includes('word')){
+                            icon = 'icon-file-word';
+                        }else if(e.target.result.includes('powerpoint')){
+                            icon = 'icon-file-powerpoint';
+                        }else if(e.target.result.includes('excel')){
+                            icon = 'icon-file-excel';
+                        }else if(e.target.result.includes('pdf')){
+                            icon = 'icon-file-pdf';
+                        }else if(e.target.result.includes('zip')){
+                            icon = 'icon-file-zip';
+                        }else if(e.target.result.includes('text/')){
+                            icon = 'icon-file-text';
+                        }
+                        if(e.target.result.includes('image')){
+                            if(_class.browser.versions.android){
+                                html_img = `<li class="uploadImg">${(_class.option.hint === 'icon')?'<i class="iconfont icon-minus del"></i>':'<i class="word del">点击<br>删除</i>'}<img src="${e.target.result}" width="70" height="75"></li>`;
+                            }else{
+                                html_img = '<li class="uploadImg"><img src="'+e.target.result+'" width="70" height="75"></li>'
+                            }
                         }else{
-                            html_img = '<li class="uploadImg"><img src="'+e.target.result+'" width="70" height="75"></li>'
+                            if(_class.browser.versions.android){
+                                html_img = `<li class="uploadImg">${(_class.option.hint === 'icon')?'<i class="iconfont icon-minus del"></i>':'<i class="word del">点击<br>删除</i>'}<i class="iconfont ${icon}" width="70" height="75"></i></li>`;
+                            }else{
+                                html_img = `<li class="uploadImg"><i class="iconfont ${icon}" width="70" height="75"></i></li>`
+                            }
                         }
                         $(source).parents("ul.upload").prepend(html_img);
                         //绑定事件
@@ -204,7 +235,7 @@ class YuImgUpload {
                 else{
                     this.handleShowMes({
                         type:'error',
-                        desc:`您的手机不支持图片预览功能!`,
+                        desc:`您的手机不支持预览功能!`,
                         timing:3500
                     });
                 }
@@ -241,15 +272,15 @@ class YuImgUpload {
             if(source.files.length>_this.parents(".upload").data("maxnum")){
                 this.handleShowMes({
                     type:'error',
-                    desc:`您最多可以上传${_this.parents(".upload").data("maxnum")}张图片!`,
+                    desc:`您最多可以上传${_this.parents(".upload").data("maxnum")}个文件!`,
                     timing:3500
                 });
                 result =  false
             }
-            if(!/image\/\w+/.test(file.type)){
+            if(!this.option.accept.includes(file.type)&&(this.option.accept!=='*')){
                 this.handleShowMes({
                     type:'error',
-                    desc:`图片格式不正确!`,
+                    desc:`文件格式不正确!`,
                     timing:3500
                 });
                 result =  false
@@ -257,7 +288,7 @@ class YuImgUpload {
             if(file.size/1024/1025>_this.parents(".upload").data("maxsize")){
                 this.handleShowMes({
                     type:'error',
-                    desc:`单张图片不能超过${_this.parents(".upload").data("maxsize")}M!`,
+                    desc:`单个文件不能超过${_this.parents(".upload").data("maxsize")}M!`,
                     timing:3500
                 });
                 result =  false

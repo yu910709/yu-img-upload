@@ -1,4 +1,4 @@
-@import url(http://at.alicdn.com/t/font_450163_1308abj4z7wdbo6r.css);/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+@import url(http://at.alicdn.com/t/font_450163_yfe7jxoe8zrggb9.css);/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
 /**
@@ -437,7 +437,11 @@ template {
     margin: 0 5px 5px;
     display: inline-block;
     position: relative;
-    vertical-align: top; }
+    vertical-align: top;
+    text-align: center; }
+    .upload li .iconfont {
+      font-size: 32px;
+      line-height: 75px; }
     .upload li .del {
       position: absolute;
       right: 0;
