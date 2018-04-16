@@ -10,7 +10,7 @@ document.querySelector('.ex').innerHTML = (`
     <div class="imgUpload"></div>
     <code>
         &lt;div class="imgUpload"&gt;&lt;/div&gt; </br></br>
-        new YuJudgeBrowser({ </br>
+        new imgUpload({ </br>
         &nbsp;&nbsp;&nbsp;&nbsp;popup:true, <br>
         &nbsp;&nbsp;&nbsp;&nbsp;multiple:true, <br>
         &nbsp;&nbsp;&nbsp;&nbsp;name:'file',  <br>
